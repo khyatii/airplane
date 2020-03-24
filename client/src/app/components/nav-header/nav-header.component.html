@@ -1,0 +1,41 @@
+<div id="nav-bar">
+    <div id="logo" (click)=logo()></div>
+    <div class="svg-icon">
+      <svg viewBox="0 0 18 18" (click)="arrowUp=!arrowUp" [ngClass]="{'arrow-up':arrowUp}"  role="presentation" aria-hidden="true" focusable="false">
+        <path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path>
+      </svg>
+    </div>
+    <button *ngIf="buttonDisplay" routerLink="/claim">{{'Check compensation' | translate }}</button>
+    <button *ngIf="finishButton" (click)=finishClaim()>{{'End claim' | translate }}</button>
+</div>
+<div id="ul-absolute" [ngClass]="{'ul-dropdown':!arrowUp, 'button-displayed':buttonDisplay||finishButton}">
+  <ul >
+    <li  *ngIf="!username" (click)="openModal('custom-modal-1')"><a>{{'Log in' | translate }}</a></li>
+    <li  *ngIf="!username" routerLink="/contact" routerLinkActive="active"><a>{{'Contact' | translate }}</a></li>
+    <li  *ngIf="!username" routerLink="/earnmoney" routerLinkActive="active"><a>{{'Share and earn money' | translate }}</a></li>
+    <!-- <li  *ngIf="!username"><a>Agencias de viaje</a></li> -->
+
+    <li  *ngIf="username" (click)="logout()"><a>{{'Log out' | translate }}</a></li>
+    <li  *ngIf="username" routerLink="/contact" routerLinkActive="active"><a>{{'Contact' | translate }}</a></li>
+    <li  *ngIf="username" routerLink="/user" routerLinkActive="active"><a>{{'My claims' | translate }}</a></li>
+    <li  *ngIf="username" routerLink="/promo" routerLinkActive="active" id="hola"><a>{{'Your promotional code:' | translate }} {{ username.promoCode }}</a></li>
+    <li  *ngIf="mobile" routerLink="/home" routerLinkActive="active"><a>{{'Home' | translate }}</a></li>
+  </ul>
+</div>
+
+<modal  id="custom-modal-1">
+    <div class="modal">
+        <div class="modal-body">
+          <div class="svg-last">
+            <svg viewBox="0 0 24 24" role="img" focusable="false"
+            style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);"
+            (click)="closeModal('custom-modal-1');">
+              <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd">
+              </path>
+            </svg>
+          </div>
+          <app-login [scrollToTop]=false></app-login>
+          </div>
+        </div>
+    <div class="modal-background"></div>
+</modal>

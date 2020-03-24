@@ -1,0 +1,98 @@
+
+<div id="first-part">
+  <div id="selectConexions">
+    <button class="gray-selected" [ngClass]="{'blue-selected':!multiple}"  (click)="direct();multiple=!multiple" >{{'Direct flight' | translate}}</button>
+    <button class="gray-selected" [ngClass]="{'blue-selected':multiple}"  (click)="multipleConexions();multiple=!multiple" >{{'Flights with a stop' | translate}}</button>
+  </div>
+  <form #form="ngForm" autocomplete='off' novalidate>
+
+    <div id="first-input-row">
+      <div class="input-div">
+        <span class='label-receiver-span'>
+          <input [ngClass]="{'red-validation':invalidForm && !claimType}" (focus)=displayClaimList() (focusout)=checkClaimList($event) type="text"
+          [(ngModel)]="claimType" name="claimType" required>
+          <label for="incident" class="placeholder-label">{{'Incidence' | translate}}</label>
+          <span *ngIf="invalidForm && !claimType" class="red-span">{{'Required field' | translate}}</span>
+          <span class="input-span"></span>
+        </span>
+      </div>
+      <div class="sixteen-pixels"></div>
+      <div class="input-div">
+        <span class='label-receiver-span'>
+          <input [ngClass]="{'red-validation':invalidForm && !airlineSearch.name}" class="even" type="text"
+           [(ngModel)]=airlineSearch.name (keyup)=filterAirline($event)
+          (focusout)="focusOutAirline($event)" name="airline" required>
+          <label for="airline" class="placeholder-label">{{'Airline' | translate}}</label>
+          <span *ngIf="invalidForm && !airlineSearch.name" class="red-span">{{'Required field' | translate}}</span>
+          <span class="input-span"></span>
+        </span>
+      </div>
+
+      <div *ngIf="ulClaimDisplay" class="suggestions">
+        <ul >
+          <li (mousedown)="selectClaimType($event)">{{'Delay less than 3 hours' | translate}}</li>
+          <li (mousedown)="selectClaimType($event)">{{'Delay greater than 3 hours' | translate}}</li>
+          <li (mousedown)="selectClaimType($event)">{{'Cancellation' | translate}}</li>
+          <li (mousedown)="selectClaimType($event)">{{'Overbooking' | translate}}</li>
+        </ul>
+      </div>
+      <div class="suggestions" *ngIf="airlinesArray.length > 0">
+        <ul *ngFor="let airline of airlinesArray" >
+          <li (mousedown)="selectAirline(airline, $event)">{{airline.name}}<span>{{airline.country}}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rows" *ngFor="let conexion of conexionsArray">
+
+      <div class="input-div" >
+        <span id="{{conexion.fromCounter}}" class='label-receiver-span'>
+          <input [ngClass]="{'red-validation':invalidForm && !airportSearch[conexion.fromCounter].name}" type="text" [(ngModel)]=airportSearch[conexion.fromCounter].name
+          (keyup)=filterAirport($event) (focusout)="focusOutAirport($event)" name="fromAirport{{conexion.fromCounter}}" required>
+          <label for="from" class="placeholder-label">{{'From' | translate }}</label>
+          <span *ngIf="invalidForm && !airportSearch[conexion.fromCounter].name" class="red-span">{{'Required field' | translate}}</span>
+          <span class="input-span"></span>
+        </span>
+      </div>
+
+      <div class="sixteen-pixels"></div>
+      <div class="input-div">
+        <span id="{{conexion.toCounter}}" class='label-receiver-span'>
+          <input [ngClass]="{'red-validation':invalidForm && !airportSearch[conexion.toCounter].name}" type="text" [(ngModel)]=airportSearch[conexion.toCounter].name
+          (keyup)=filterAirport($event) (focusout)="focusOutAirport($event)" name="toAirport{{conexion.toCounter}}" required>
+          <label for="to" class="placeholder-label">{{'To' | translate }}</label>
+          <span *ngIf="invalidForm && !airportSearch[conexion.toCounter].name" class="red-span">{{'Required field' | translate}}</span>
+          <span class="input-span"></span>
+        </span>
+        <div class="svg-icon">
+          <svg [ngStyle]="notAllowed" (click)="quitConexions()" viewBox="0 0 24 24" role="img" focusable="false"
+          style="height: 12px; width: 12px; fill: rgb(118, 118, 118);">
+            <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <div class="suggestions" id="{{conexion.fromCounter}}" *ngIf="airportsArray[conexion.fromCounter].length > 0">
+        <ul >
+          <li *ngFor="let airport of airportsArray[conexion.fromCounter]" (mousedown)="selectAirport(airport, $event)">{{airport.name}}<span>{{airport.country}}</span></li>
+        </ul>
+      </div>
+      <div class="suggestions" id="{{conexion.toCounter}}" *ngIf="airportsArray[conexion.toCounter].length > 0">
+        <ul >
+          <li *ngFor="let airport of airportsArray[conexion.toCounter]" (mousedown)="selectAirport(airport, $event)">{{airport.name}}<span>{{airport.country}}</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </form>
+  <button *ngIf="multiple===true" id="add" [ngStyle]="add" (click)="addConexions()">{{'Add another stop' | translate}}</button>
+
+  <div id="terms">
+      <app-checkbox></app-checkbox>
+      <span *ngIf="invalidForm && !checkedBox" class="red-span" id="red-terms">{{'You must accept the General Conditions' | translate}}</span>
+    <a routerLink="/terms" [ngClass]="{'blue-t':checkedBox}"
+     id="terms-link">{{'I accept the' | translate}} <a class="blue-terms">{{'General Conditions' | translate}}</a></a>
+  </div>
+  <button id="getCompensation" (click)="newCalculation(form)" >{{'Check compensation' | translate}}</button>
+
+</div>

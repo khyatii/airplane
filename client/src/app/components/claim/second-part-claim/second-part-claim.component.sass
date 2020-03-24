@@ -1,0 +1,287 @@
+@import '../../../../style-variables/colors'
+@import '../../../../style-variables/input-transition'
+
+app-id-front, app-id-back, app-flight-ticket-or-reservation, app-company-claim, app-boarding-pass
+  width: 100%
+  margin: 3px 0
+
+//form size in input-border-transition.css as well
+$label-size: 10px
+$red-span-size: 12px
+$form-size: 16px
+$form-not-input-size: 14px
+$button-size: 16px
+
+.pic-error
+  position: relative
+
+#pic-error
+  position: absolute
+  top: -10px
+  left: 0
+
+.error
+  color: $novalidate-red !important
+
+// input transition
+.input-div
+  @include input-div
+  width: 100%
+
+.input-span
+  @include input-span
+
+.red-validation
+  @include red-validation
+
+.red-span
+  @include red-span($red-span-size)
+
+//same width as input 100%
+input
+  @include input(100%, $form-size, $label-size)
+  background: none
+  box-sizing: border-box
+  &:not(:focus):valid
+    background: url(../../../../assets/web-icons/checked.svg) no-repeat !important
+    background-position-x: calc(100% - 3px) !important
+    background-position-y: 4px !important
+
+textarea
+    @include input(100%, $form-size, $label-size)
+    border: none
+    line-height: 130%
+    outline: none
+    resize: none
+    border-bottom: 1px solid $input-border-gray
+    padding: 0 0 3px 0
+    height: 23px
+    box-sizing: border-box
+    transition: all 0.304s ease-in-out
+    &:focus
+      height: 200px
+
+#last-span
+  bottom: 4px
+
+#first-row
+  input
+    background: url(../../../../assets/web-icons/down-arrow.svg) no-repeat
+    background-position-x: calc(100% - 3px)
+    background-position-y: 11px
+    padding-right: 25px
+
+.placeholder-label
+  @include placeholder-label(15px)
+
+.rows
+  position: relative
+  display: flex
+  justify-content: space-between
+  width: 100%
+
+//super-necessary
+.sixteen-pixels
+  width: 16px
+  height: auto
+
+.three-quarters
+  width: calc(65% - 8px)
+
+.quarter
+  width: calc(35% - 8px)
+  display: flex
+
+.blue-selected
+  display: inline-block
+  width: 50%
+  background-color: $primary-color !important
+  color: white !important
+  cursor: default !important
+  box-shadow: 0 2px 4px rgba(0,0,0,.25) !important
+
+.gray-selected
+  width: 50%
+  background-color: $gblue-background
+  color: $label-color
+  cursor: pointer
+  box-shadow: none
+
+#first-row
+  position: relative
+  display: flex
+  justify-content: space-between
+  width: 100%
+  margin: 0
+
+#first-part
+  padding: 0 16px 0 0
+
+//cannot put height it has to be max-height
+.suggestions
+  width: calc(100% + 23px)
+  max-height: 200px
+  overflow: hidden
+  overflow-y: scroll
+  position: absolute
+  background-color: white
+  left: 0
+  top: 44px
+  z-index: 3
+  box-shadow: 0 1px 5px $box-shadow-gray
+
+@media only screen and (min-width: 850px)
+  .suggestions
+    top: 46px
+
+//width and box-sizing properties are super important
+ul
+  width: calc(100vw - 32px)
+  box-sizing: border-box
+  list-style-type: none
+  color: $text-dark-gray
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  li
+    font-size: $form-not-input-size
+    padding: 10px 10px 10px 10px
+    box-sizing: border-box
+    span
+      float: right
+      color: $label-color
+      padding-right: 16px
+  li:first-of-type
+    padding-top: 15px
+  li:hover
+    cursor: pointer
+    background-color: $li-hover-background
+
+.row-border
+  display: flex
+  justify-content: space-between
+  width: 100%
+  box-sizing: border-box
+  margin: 20px 0
+  .three-quarters, .quarter
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    height: auto
+
+#first-row-border
+  margin: 10px 0 20px 0 !important
+
+.border
+  width: 100%
+  display: block
+  text-align: left
+  color: black
+  font-size: $form-not-input-size
+  box-sizing: border-box
+  vertical-align: bottom
+  color: $primary-color
+  font-weight: 700
+
+.buttons
+  display: flex
+  justify-content: center
+  flex-direction: row
+  height: 100%
+
+button
+  width: 50%
+  vertical-align: bottom
+  font-size: $form-not-input-size
+  border-radius: 1px
+  height: 100% !important
+  font-weight: 700
+  justify-content: center
+  border: none
+  box-sizing: border-box
+
+button:hover
+  box-shadow: 0 2px 4px rgba(0,0,0,.25)
+
+.margin
+  margin-top: -10px
+
+#getCompensation
+  background-color: $primary-color
+  border: none
+  font-size: $button-size
+  font-weight: 700
+  width: 230px
+  color: white
+  padding: 10px 16px
+  margin: 16px calc(50% - 230px/2)
+  &:hover
+    background-color: $button-hover-color
+    box-shadow: 0 2px 4px rgba(0,0,0,.25)
+
+@media only screen and (max-width: 360px)
+  $form-size: 12px
+  $form-not-input-size: 11px
+  $label-size: 8px
+  $red-span-size: 10px
+
+  .red-span
+    @include red-span($red-span-size)
+
+  input
+    @include input(100%, $form-size, $label-size)
+
+  #first-row
+    input
+      background-position-y: 7px
+      &:not(:focus):valid
+        background-position-y: 2px
+
+  .placeholder-label
+    @include placeholder-label($form-size)
+
+  ul
+    li
+      font-size: $form-not-input-size
+      span
+        color: $label-color
+
+  .border
+    font-size: $form-not-input-size
+
+  button
+    font-size: $form-not-input-size
+
+@media only screen and (min-width: 850px)
+  $form-size: 17.5px
+  $form-not-input-size: 16.5px
+  $label-size: 12px
+  $red-span-size: 14px
+
+  .red-span
+    @include red-span($red-span-size)
+
+  input
+    @include input(100%, $form-size, $label-size)
+
+  .placeholder-label
+    @include placeholder-label($form-size)
+
+  ul
+    li
+      font-size: $form-not-input-size
+      span
+        color: $label-color
+
+  .border
+    font-size: $form-not-input-size
+
+  button
+    font-size: $form-not-input-size
+
+  textarea
+      @include input(100%, $form-size, $label-size)
+      height: 25px
+      transition: all 0.304s ease-in-out
+      &:focus
+        height: 300px

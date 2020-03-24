@@ -1,0 +1,110 @@
+@import '../../../../../style-variables/colors'
+
+$form-not-input-size: 14px
+$label-size: 10px
+
+label
+  color: $label-color
+  font-size: $label-size
+  margin: 10px 0 0 0
+
+.border
+  width: 100%
+  border-bottom: 1px solid $input-border-gray
+  padding: 0 25px 0 0
+  margin: 0 0 10px 0
+  display: block
+  text-align: left
+  line-height: 24px
+  color: black
+  font-size: $form-not-input-size
+  box-sizing: border-box
+  background: url(../../../../../assets/web-icons/checked.svg) no-repeat
+  background-position-x: calc(100% - 3px)
+  background-position-y: 7px
+  max-height: 53px
+  //necesarry for ellipsis overflow
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+.relative
+  position: relative
+
+.relative > svg
+  height: 11px
+  width: 11px
+  position: absolute
+  left: calc(100% + 6px)
+  top: 26px
+
+button
+  width: 100%
+  position: relative
+  box-sizing: border-box
+  border-radius: 5px
+  padding: 12px 24px 12px 38px
+  border: none
+  color: white
+  background-color: $primary-color
+  font-size: $form-not-input-size
+  font-weight: 600
+  display: inline-flex
+  margin: 10px 0
+  justify-content: center
+
+.red-validation
+  background-color: $novalidate-red
+
+button > svg
+  height: $form-not-input-size
+  width: $form-not-input-size
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  margin: auto 0 auto 20px
+
+@media only screen and (max-width: 360px)
+  $form-size: 12px
+  $form-not-input-size: 11px
+  $label-size: 8px
+
+  label
+    font-size: $label-size
+
+  .border
+    font-size: $form-not-input-size
+
+  button
+    font-size: $form-not-input-size
+
+  .svg-icon
+    height: $form-not-input-size
+    width: $form-not-input-size
+
+  .svg-icon > svg
+    height: $form-not-input-size
+    width: $form-not-input-size
+
+@media only screen and (min-width: 850px)
+  $form-not-input-size: 16.5px
+  $label-size: 12px
+
+  label
+    font-size: $label-size
+
+  .border
+    font-size: $form-not-input-size
+
+  button
+    font-size: $form-not-input-size
+
+  .svg-icon
+    height: $form-not-input-size
+    width: $form-not-input-size
+
+  .svg-icon > svg
+    height: $form-not-input-size
+    width: $form-not-input-size

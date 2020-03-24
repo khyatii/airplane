@@ -1,0 +1,25 @@
+
+<div *ngIf="!calculation" id="claim">
+  <h1>{{'Check your' | translate }} <br> {{'compensation' | translate }}</h1>
+  <app-first-part-claim  *ngIf="!calculation"></app-first-part-claim>
+</div>
+
+<div id="no-compensation" *ngIf="calculation">
+  <app-no-compensation *ngIf="calculation.companyMoney === 0"></app-no-compensation>
+</div>
+
+<div id="login" *ngIf="calculation&&!username && calculation.companyMoney !== 0">
+  <div>
+    <h1>{{'Airlines owe you' | translate }} <br> {{calculation.companyMoney+calculation.userMoney}}€ {{'per passenger' | translate }}</h1>
+    <h3>{{'Log in or sign up' | translate }} <br> {{'to earn your' | translate }} {{calculation.companyMoney+calculation.userMoney}}€</h3>
+  </div>
+  <app-login [scrollToTop]=true></app-login>
+</div>
+
+<div id="last" *ngIf="calculation&&username && calculation.companyMoney !== 0">
+  <h1 *ngIf="!calculation.collaborator">{{'Airlines owe you' | translate }} <br> {{calculation.companyMoney+calculation.userMoney}}€ {{'per passenger' | translate }}</h1>
+  <h1 *ngIf="calculation.collaborator">{{'Airlines owe you' | translate }} <br> {{calculation.companyMoney+calculation.userMoney+calculation.collaborator.money}}€ {{'per passenger' | translate }}</h1>
+  <h2 *ngIf="promoCode">{{"Congratulations, you've got" | translate }} {{promoCode}}€ {{'more thanks to the promotional code!' | translate }}</h2>
+  <h3>{{'Finish your claim and our experts will process your compensation' | translate }}</h3>
+  <app-second-part-claim ></app-second-part-claim>
+</div>

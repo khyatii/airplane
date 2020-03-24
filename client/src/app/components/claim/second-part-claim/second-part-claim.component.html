@@ -1,0 +1,175 @@
+<div id="first-part">
+
+  <form #form="ngForm" autocomplete='off' novalidate>
+
+    <div id="first-row">
+      <div class="input-div">
+        <span class='label-receiver-span'>
+          <input [ngClass]="{'red-validation':invalidForm && !formClaim.incidentAirport}" (focus)=displayClaimList() (focusout)=checkClaimList($event)
+          type="text" name="incidentAirport" [(ngModel)]="formClaim.incidentAirport" required>
+          <label for="incidentAirport" class="placeholder-label">{{'Airport where the incident occurred'| translate }}</label>
+          <span *ngIf="invalidForm && !formClaim.incidentAirport" class="red-span">{{'Required field' | translate }}</span>
+          <span class="input-span"></span>
+        </span>
+      </div>
+      <div *ngIf="ulClaimDisplay" class="suggestions">
+        <ul *ngFor="let airport of airports" >
+          <li (mousedown)="selectAirport(airport, $event)">{{airport.name}}<span>{{airport.country}}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="three-quarters">
+        <div class="input-div">
+          <span class='label-receiver-span'>
+            <input [ngClass]="{'red-validation':promoCodeError}" id="discount" type="text" name="discount"
+            (focusout)=checkPromoCode() [(ngModel)]="formInfo.promoCode" required/>
+            <label for="discount" class="placeholder-label">{{'Promotional code (opt)' | translate }}</label>
+            <span *ngIf="promoCodeError" class="red-span">{{promoCodeError}}</span>
+            <span class="input-span"></span>
+          </span>
+        </div>
+      </div>
+      <div class="sixteen-pixels"></div>
+      <div class="quarter">
+        <div class="input-div">
+          <span class='label-receiver-span'>
+            <input [ngClass]="{'red-validation':invalidForm && !formClaim.year}" id="year" type="text" name="year"
+            [(ngModel)]="formClaim.year" required/>
+            <label for="year" class="placeholder-label">{{'Flight year' | translate }}</label>
+            <span *ngIf="invalidForm && !formClaim.year" class="red-span">{{'Required'| translate }}</span>
+            <span class="input-span"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="three-quarters">
+        <div class="input-div">
+          <span class='label-receiver-span'>
+            <input [ngClass]="{'red-validation':invalidForm && !formInfo.address}"
+            id="address" type="text" name="address" [(ngModel)]="formInfo.address" required/>
+            <label for="address" class="placeholder-label">{{'Address' | translate }}</label>
+            <span *ngIf="invalidForm && !formInfo.address" class="red-span">{{'Required field' | translate }}</span>
+            <span class="input-span"></span>
+          </span>
+        </div>
+      </div>
+      <div class="sixteen-pixels"></div>
+      <div class="quarter">
+        <div class="input-div">
+          <span class='label-receiver-span'>
+            <input [ngClass]="{'red-validation':invalidForm && !formInfo.postalCode}"
+             id="postalCode" type="text" name="postalCode" [(ngModel)]="formInfo.postalCode" required/>
+            <label for="postalCode" class="placeholder-label">{{'ZIP' | translate }}</label>
+            <span *ngIf="invalidForm && !formInfo.postalCode" class="red-span">{{'Required'| translate }}</span>
+            <span class="input-span"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="three-quarters">
+        <div class="input-div">
+          <span class='label-receiver-span'>
+            <input [ngClass]="{'red-validation':invalidForm && !formInfo.city}"
+             id="city" type="text" name="city" [(ngModel)]="formInfo.city" required/>
+            <label for="city" class="placeholder-label">{{'City' | translate }}</label>
+            <span *ngIf="invalidForm && !formInfo.city" class="red-span">{{'Required field' | translate }}</span>
+            <span class="input-span"></span>
+          </span>
+        </div>
+      </div>
+      <div class="sixteen-pixels"></div>
+      <div class="quarter">
+        <div class="input-div">
+          <span class='label-receiver-span'>
+            <input [ngClass]="{'red-validation':invalidForm && !formInfo.country}"
+              id="country" type="text" name="country" [(ngModel)]="formInfo.country" required/>
+            <label for="country" class="placeholder-label">{{'Country' | translate }}</label>
+            <span *ngIf="invalidForm && !formInfo.country" class="red-span">{{'Required'| translate }}</span>
+            <span class="input-span"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rows">
+      <app-id-front [error]="dniError"></app-id-front>
+    </div>
+    <div class="pic-error">
+      <span *ngIf="dniError" class="red-span" id="pic-error">{{'Required field' | translate }}</span>
+    </div>
+
+    <div class="rows">
+      <app-id-back></app-id-back>
+    </div>
+
+    <div id="first-row-border" class="row-border">
+      <div class="three-quarters">
+        <span class="border">{{'Did you complain to the airline?' | translate }}</span>
+      </div>
+      <div class="sixteen-pixels"></div>
+      <div class="quarter">
+        <div class="buttons">
+          <button class="gray-selected" [ngClass]="{'blue-selected':companyClaim}" (click)="companyClaim=!companyClaim">{{'YES'| translate }}</button>
+          <button class="gray-selected" [ngClass]="{'blue-selected':!companyClaim}" (click)="companyClaim=!companyClaim">{{'NO' | translate }}</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="companyClaim" class="margin">
+      <app-company-claim></app-company-claim>
+    </div>
+
+    <div class="row-border">
+      <div class="three-quarters">
+        <span class="border" [ngClass]="{'error':picError}">{{'Do you have the flight reservation or ticket?' | translate }}</span>
+      </div>
+      <div class="sixteen-pixels"></div>
+      <div class="quarter">
+        <div class="buttons">
+          <button class="gray-selected" [ngClass]="{'blue-selected':flightTicket}" (click)="flightTicket=!flightTicket">{{'YES'| translate }}</button>
+          <button class="gray-selected" [ngClass]="{'blue-selected':!flightTicket}" (click)="flightTicket=!flightTicket">{{'NO' | translate }}</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="flightTicket" class="margin">
+      <app-flight-ticket-or-reservation [error]="picError"></app-flight-ticket-or-reservation>
+    </div>
+
+    <div class="row-border">
+      <div class="three-quarters">
+        <span class="border" [ngClass]="{'error':picError}">{{'Do you have the boarding pass?' | translate }}</span>
+      </div>
+      <div class="sixteen-pixels"></div>
+      <div class="quarter">
+        <div class="buttons">
+          <button class="gray-selected" [ngClass]="{'blue-selected':boardingPass}" (click)="boardingPass=!boardingPass">{{'YES'| translate }}</button>
+          <button class="gray-selected" [ngClass]="{'blue-selected':!boardingPass}" (click)="boardingPass=!boardingPass">{{'NO' | translate }}</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="boardingPass" class="margin">
+      <app-boarding-pass [error]="picError"></app-boarding-pass>
+    </div>
+
+    <div class="rows">
+      <div class="input-div">
+        <span class='label-receiver-span'>
+          <textarea (keydown)="scrollToBottom()" id="description" type="text" name="description" [(ngModel)]="formClaim.description" required></textarea>
+          <label for="description" class="placeholder-label">{{'Tell us what happened (opt)' | translate }}</label>
+          <span class="input-span" id="last-span"></span>
+        </span>
+      </div>
+    </div>
+
+    <app-red-div *ngIf="picError"></app-red-div>
+  </form>
+
+
+  <button #finishClaim type="submit" id="getCompensation" (click)="finish(form)" >{{'End claim' | translate }}</button>
+
+</div>

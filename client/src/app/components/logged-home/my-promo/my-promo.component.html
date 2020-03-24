@@ -1,0 +1,33 @@
+<div id="body">
+  <div id="first-div" [ngClass]="{'no-first':firstPadding}">
+    <h1>{{'Your promotional' | translate}} <br> {{'code' | translate}} {{ username.promoCode }}</h1>
+    <h3>{{'If you want to know how you can earn money by sharing, click' | translate}} <a routerLink="/earnmoney">{{'here' | translate}}</a>.</h3>
+    <div class="svg-icon" [ngClass]="{'none':scrolled}" (click)="scrollToActivity()">
+      <svg viewBox="0 0 18 18"  role="presentation" aria-hidden="true" focusable="false">
+        <path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path>
+      </svg>
+      <span>{{'Your activity' | translate}}</span>
+    </div>
+
+  </div>
+  <div id="display">
+    <h1 id="last-h1" #activity>{{'Your activity' | translate}}</h1>
+    <div class="flex">
+      <img src="../../../assets/web-icons/medal.svg">
+      <h3 *ngIf="promosTotal === 1">{{'Code used' | translate}} <br> {{promosTotal}} {{'time' | translate }}</h3>
+      <h3 *ngIf="promosTotal !== 1">{{'Code used' | translate}} <br> {{promosTotal}} {{'times' | translate }}</h3>
+    </div>
+    <div class="flex">
+      <img src="../../../assets/web-icons/folder.svg">
+      <h3>{{pendingEuros}} {{'euros' | translate}} <br> {{'aware of payment' | translate}}</h3>
+    </div>
+    <div class="flex">
+      <img src="../../../assets/web-icons/awards.svg">
+      <h3>{{earnedEuros}} {{'euros' | translate}} <br> {{'payed' | translate}}</h3>
+    </div>
+    <div class="flex">
+      <img src="../../../assets/web-icons/overbooking.svg">
+      <h3>{{failedPromos}} {{'invalid' | translate}} <br> {{'promotions' | translate}}</h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+@import '../../../../style-variables/colors'
+
+$h1-size: 28px
+$h2-size: 24px
+$p-size: 16px
+
+.gray
+  background-color: $gblue-background !important
+
+#first-part
+  margin-top: 0
+  background-color: white
+  text-align: center
+  height: 80vh
+  display: flex
+  justify-content: center
+  flex-direction: column
+  padding: 0 10vw
+
+#first-div
+  background-color: $gblue-background
+
+#second-part
+  display: flex
+  justify-content: center
+  flex-direction: column
+
+.divs
+  height: 350px
+  width: 100%
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+  align-items: center
+  padding: 90px 32px
+  box-sizing: border-box
+
+h1
+  font-size: $h1-size
+  color: $text-dark-gray
+  font-weight: 700
+  text-align: center
+
+h2
+  font-size: $h2-size
+  color: $text-dark-gray
+  font-weight: 700
+  margin: 0
+  text-align: center
+
+p
+  color: $text-light-gray
+  font-size: $p-size
+
+a
+  font-size: $p-size
+  color: #0075eb
+
+.circle
+  width: 72px
+  height: 72px
+  box-sizing: border-box
+  border-radius: 50%
+  border: 2px solid $input-border-gray
+  position: relative
+
+#phone-icon
+  position: absolute
+  left: -2px
+  top: -1px
+
+#mail-icon
+  position: absolute
+  left: 22px
+  top: 23px
+
+@media only screen and (min-width: 850px)
+  $h1-size: 40px
+  $h2-size: 29px
+  $p-size: 20px
+
+  #first-part
+    margin-top: 100px
+    height: auto
+    display: flex
+    justify-content: center
+    flex-direction: column
+    p
+      max-width: 350px
+      margin: 0 auto
+
+  #second-part
+    flex-direction: row
+    margin: 100px 0 200px 0
+    position: relative
+
+  .divs
+    width: 40vw
+
+  #first-div
+    background-color: white
+
+  h1
+    font-size: $h1-size
+
+  h2
+    font-size: $h2-size
+
+  p
+    font-size: $p-size
+
+  a
+    font-size: $p-size

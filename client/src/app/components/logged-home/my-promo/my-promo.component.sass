@@ -1,0 +1,140 @@
+@import '../../../../style-variables/colors'
+
+$h3-size: 20px
+
+.svg-icon
+  position: fixed
+  left: calc(50vw - 45px)
+  bottom: 5px
+  span
+    color: white
+    font-size: 14px
+    opacity: 0.8
+  svg
+    position: absolute
+    display: inline
+    height: 18px
+    width: 18px
+    top: -20px
+    left: 38px
+    fill: white
+    cursor: pointer
+    fill-opacity: 0.8
+
+.none
+  display: none
+
+a
+  font-weight: 700
+  color: white
+
+#first-div
+  margin-top: 0
+  padding: calc((40vh - 22.5px) - 368px/2) calc(50% - 253px/2) calc((60vh - 22.5px) - 368px/2) calc(50% - 253px/2)
+  display: flex
+  justify-content: space-around
+  flex-direction: column
+  min-height: 100vh
+  box-sizing: border-box
+  background-color: $primary-color
+  h3
+    color: $text-light-gray
+    font-weight: 500
+    text-align: center
+    color: white
+
+.no-first
+  padding: 25px calc(50% - 253px/2) 75px calc(50% - 253px/2) !important
+
+h1
+  text-align: center
+  color: white
+  margin: 100px 4.97%
+
+#last-h1
+  margin: 100px 4.97% 0 4.97%
+  color: $text-dark-gray
+
+
+span
+  font-weight: 700
+  color: $primary-color
+  &:hover
+    opacity: 0.8
+    cursor: pointer
+
+#display
+  display: flex
+  justify-content: space-around
+  flex-direction: column
+  padding: 0
+  min-height: 100vh
+  box-sizing: border-box
+  align-self: center
+  .flex
+    height: 300px
+    width: 100%
+    padding: 90px 4.97%
+    text-align: center
+    box-sizing: border-box
+    &:nth-of-type(even)
+      background: $gblue-background
+    h3
+      color: $text-dark-gray
+    img
+      width: 50px
+      height: auto
+
+@media only screen and (min-width: 1250px)
+  .svg-icon
+    display: none
+
+  #body
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    padding: 0
+
+  #first-div
+    padding: 0
+    display: flex
+    justify-content: flex-start
+    flex-direction: column
+    min-height: 80vh
+    box-sizing: border-box
+    width: 50vw
+    h3
+      font-weight: 500
+      text-align: center
+      max-width: 330px
+      margin: calc(300px - 39px) 150px calc(300px - 39px) auto
+    h1
+      margin: 100px 150px 100px auto
+
+
+  #last-h1
+    margin: 119.5px 0
+    width: 100%
+
+  #display
+    display: flex
+    justify-content: flex-start
+    flex-direction: row
+    flex-wrap: wrap
+    margin: 0 calc(50vw - 600px) 30vh 0
+    max-width: 600px
+    min-height: 80vh
+    box-sizing: border-box
+    align-self: center
+    .flex
+      height: 300px
+      width: 300px
+      text-align: center
+      box-sizing: border-box
+      &:nth-of-type(3)
+        background: $gblue-background
+      &:nth-of-type(4)
+        background: white
+      img
+        width: 100px
+        height: auto

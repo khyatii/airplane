@@ -1,0 +1,52 @@
+@import './colors'
+
+// REMEMBER TO PUT REQUIRED IN INPUT!!!!!
+@mixin input-div
+  position: relative
+  display: inline-block
+  padding-top: 10px
+  margin: 12px 0
+  /*  make space for label
+
+@mixin input-span
+  position: absolute
+  left: 0
+  content: ''
+  height: 40px
+  height: 1px
+  background: $input-border-blue
+  transition: all 0.25s linear
+  width: 0
+  bottom: 1px
+  margin: 0 !important
+
+@mixin input($width, $form-size, $small-label)
+  font-size: $form-size
+  width: $width
+  padding-right: 20px
+  &:focus
+    ~ span
+     width: $width
+     height: 2px
+  &:focus ~ .placeholder-label, &:not(:focus):valid ~ .placeholder-label
+    top: -6px
+    font-size: $small-label
+
+@mixin placeholder-label($form-size)
+  position: absolute
+  pointer-events: none
+  top: 12px
+  left: 0px
+  transition: 0.25s ease all
+  font-size: $form-size
+  color: $label-color
+
+@mixin red-validation
+  border-bottom: 2px solid $novalidate-red
+
+@mixin red-span($red-span-size)
+  position: absolute
+  font-size: $red-span-size
+  color: $novalidate-red
+  top: 38px
+  left: 0px

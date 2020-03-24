@@ -1,0 +1,114 @@
+@import '../../../style-variables/colors'
+
+$button-size: 14px
+$h1-size: 32px
+$h3-size: 20px
+$p-size: 16px
+
+#first-div
+  display: flex
+  justify-content: space-around
+  flex-direction: column
+  #welcome
+    display: flex
+    justify-content: space-around
+    flex-direction: column
+    padding: calc((40vh - 22.5px) - 368px/2) calc(50% - 253px/2) 0 calc(50% - 253px/2)
+    box-sizing: border-box
+    button
+      margin: 50px 0 0 0
+      background-color: $primary-color
+      border: none
+      font-size: 16px
+      font-weight: 700
+      color: white
+      padding: 10px 16px
+      max-height: none
+
+span
+  font-weight: 700
+  color: $primary-color
+  &:hover
+    opacity: 0.8
+    cursor: pointer
+
+h1
+  font-size: $h1-size
+  color: $text-dark-gray
+  font-weight: 700
+  text-align: center
+
+h3
+  font-size: $h3-size
+  font-weight: 700
+  margin: 50px 0
+  text-align: center
+  color: $text-dark-gray
+
+#first-h3
+  font-weight: 400
+  margin: 10vh 0
+  color: $text-light-gray
+
+button
+  background-color: $primary-color
+  border: none
+  font-size: $button-size
+  font-weight: 700
+  color: white
+  padding: 5px 10px
+  max-height: 30px
+  margin: auto 0
+
+#claims
+  padding: 0 4.97% 100px 4.97%
+  ul
+    padding: 0 0 0 4.97%
+    display: flex
+    justify-content: space-between
+    width: 100%
+    box-sizing: border-box
+    flex-wrap: wrap
+    div
+      display: inline-flex
+      li
+        width: calc(100% - 110px)
+        color: $text-light-gray
+        padding: 10px 0
+  table
+    border-collapse: collapse
+    width: 100%
+    tr
+      th, td
+        border: 1px solid $input-border-gray
+        text-align: center
+        padding: 10px 5px
+      th
+        color: $text-dark-gray
+      td
+        color: $text-light-gray
+
+@media only screen and (min-width: 850px)
+  $button-size: 16px
+  $h1-size: 48px
+  $h3-size: 24px
+  $p-size: 16px
+
+  #first-div
+    align-items: center
+    #welcome
+      align-items: center
+      padding: calc((45vh - 32.5px) - 511px/2) calc(50% - 475px/2) 0 calc(50% - 475px/2)
+      box-sizing: border-box
+      button
+        width: 230px
+        margin: 65px 0 0 0
+        
+  #claims
+    padding: 0 calc(50vw - 350px) 100px calc(50vw - 350px)
+
+  h1
+    font-size: $h1-size
+
+  h3
+    font-size: $h3-size

@@ -1,0 +1,305 @@
+@import '../../../style-variables/colors'
+
+$button-size: 16px
+$h1-size: 32px
+$h2-size: 24px
+$h3-size: 20px
+$p-size: 16px
+
+#first-div
+  margin-top: 0
+  background-color: white
+  padding: calc((40vh - 22.5px) - 368px/2) calc(50% - 253px/2) calc((60vh - 22.5px) - 368px/2) calc(50% - 253px/2)
+
+.no-first
+  padding: 25px calc(50% - 253px/2) 75px calc(50% - 253px/2) !important
+
+.divs
+  display: flex
+  justify-content: space-around
+  flex-direction: column
+  padding: 100px 4.97%
+  min-height: 100vh
+  box-sizing: border-box
+
+h1
+  font-size: $h1-size
+  color: $text-dark-gray
+  font-weight: 700
+  text-align: center
+
+h2
+  font-size: $h2-size
+  color: $text-dark-gray
+  font-weight: 700
+  margin: 0
+  text-align: center
+
+h3
+  font-size: $h3-size
+  font-weight: 700
+  margin: 0
+  text-align: left
+
+p
+  color: $text-light-gray
+  font-size: $p-size
+
+#first-h3
+  color: $text-light-gray
+  font-weight: 500
+  text-align: center
+
+button
+  background-color: $primary-color
+  border: none
+  font-size: $button-size
+  font-weight: 700
+  color: white
+  padding: 10px 16px
+  &:first-of-type
+    margin: 50px 0 0 0
+
+button:hover
+  background-color: $button-hover-color
+  box-shadow: 0 2px 4px rgba(0,0,0,.25)
+
+img
+  width: 100px
+  height: 100px
+
+#second-div
+  background-color: $gblue-background
+  margin: 0
+  text-align: center
+  padding: calc(50vh - 467px/2) 4.97%
+  h2
+    margin: 0 0 30px 0
+  .claim-type
+    margin: 0
+    flex-direction: row
+    justify-content: flex-start
+    .incident
+      width: 100%
+    img
+      padding: 0 30px 0 0
+      min-width: 50px
+      height: 50px
+      display: inline-flex
+    h3, p
+    display: inline-flex
+    margin: auto 0
+    padding: auto 0
+    text-align: left
+    color: $text-dark-gray
+
+.no-second
+  padding: 75px 4.97% !important
+
+#third-div
+  background-color: white
+  margin: 0
+  text-align: center
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  padding: calc(50vh - 467px/2) 4.97%
+  #functioning
+    display: flex
+    overflow-x: scroll
+    div
+      margin: 0 calc((100% - 270px)/2) !important
+      width: 270px !important
+    img
+      display: flex
+      justify-content: center
+      margin: 32px auto
+    h3
+      text-align: center
+      margin: 16px 0
+      color: $text-dark-gray
+    p
+      margin: 0 auto
+      padding: 0
+      float: none
+      display: flex
+      justify-content: center
+      text-align: center
+      width: 270px
+      height: 120px
+
+.no-third
+  padding: 50px 4.97% !important
+
+#mobile-circle-arrow
+  display: flex
+  justify-content: center
+  margin-top: 15px
+
+#mobile-circle-arrow img
+  display: inline
+  float: left
+  width: 25px
+  height: 25px
+  margin: 0 20px
+
+#first-arrow
+  transform: rotate(180deg)
+  opacity: 0.5
+
+.circle
+  background: #C7D5E7
+  width: 10px
+  height: 10px
+  border-radius: 50%
+  display: inline
+  float: left
+  margin: 7.5px 15px
+
+.circle:first-of-type
+  background: $text-dark-gray
+
+#blue-div
+  background-color: $primary-color
+  margin: 0
+  display: flex
+  flex-direction: column !important
+  justify-content: space-between
+  .blue-divs
+    margin: 0
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+    display: inline-flex
+    margin: auto 0
+    padding: 10px 0
+    color: white
+    img
+      margin: 0
+      padding: 0 30px 0 4.97%
+      width: 50px
+      height: auto
+      display: inline-flex
+    h3
+      min-width: 250px
+      max-width: 250px
+@media only screen and (min-width: 850px)
+  $button-size: 16px
+  $h1-size: 48px
+  $h2-size: 36px
+  $h3-size: 23.9px
+  $p-size: 16px
+
+  #first-div
+    min-height: calc(100vh - 65px)
+    padding: calc((45vh - 32.5px) - 511px/2) calc(50% - 475px/2) calc((55vh - 32.5px) - 511px/2) calc(50% - 475px/2)
+    align-items: center
+    box-sizing: border-box
+    button
+      width: 230px
+      margin: 65px 0 0 0
+
+  .no-first
+    padding: 50px calc(50% - 475px/2) 100px calc(50% - 475px/2)  !important
+
+  h1
+    font-size: $h1-size
+
+  h2
+    font-size: $h2-size
+
+  h3
+    font-size: $h3-size
+
+  #second-div
+    flex-direction: row
+    padding: calc(50vh - 406px/2) calc(50% - 810px/2)
+    flex-wrap: wrap
+    h2
+      width: 100%
+      margin: 0 0 60px 0
+    .claim-type
+      width: 270px
+      padding: 0 20px
+      box-sizing: border-box
+      flex-direction: column
+      justify-content: flex-end
+      align-items: center
+      .incident
+        width: 100%
+      img
+        padding: 0
+        width: 100px
+        height: 100px
+        display: block
+      h3, p
+        display: block
+        margin: 16px 0
+        text-align: center
+      p
+        height: 76px
+
+  .no-second
+    padding: 100px calc(50% - 810px/2) !important
+
+  #third-div
+    flex-direction: column
+    padding: calc(50vh - 479px/2) calc(50% - 810px/2)
+    h2
+      margin: 0 0 60px 0
+    #functioning
+      flex-direction: row
+      justify-content: space-between
+      overflow-x: visible
+      div
+        padding: 0 20px
+        box-sizing: border-box
+        margin: 0 !important
+        flex-direction: column
+        justify-content: flex-end
+        align-items: center
+        box-sizing: border-box !important
+        img
+          padding: 0
+          width: 100px
+          height: 100px
+          display: block
+          margin: 0 auto
+        h3, p
+          display: block
+          padding: auto 0
+        h3
+          width: 100%
+        p
+          height: 120px
+          width: 230px
+
+  .no-third
+    padding: 100px calc(50% - 810px/2) !important
+
+  #mobile-circle-arrow
+    display: none
+
+  #blue-div
+    margin: 0
+    display: flex
+    flex-direction: row !important
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: calc(50vh - 400px/2) calc(50% - 810px/2)
+    .blue-divs
+      margin: 0
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+      width: 50%
+      height: 200px
+      box-sizing: border-box
+      img
+        width: 100px
+        height: auto
+      h3
+        min-width: none
+        max-width: none

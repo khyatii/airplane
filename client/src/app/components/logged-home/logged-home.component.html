@@ -1,0 +1,35 @@
+<div id="first-div">
+  <div id="welcome">
+    <h1>{{'Hello' | translate }} {{username.firstName}}</h1>
+    <!-- <p>{{message}}</p> -->
+    <h3 id="first-h3" *ngIf="justClaimed">{{'Thank you for finalizing your claim. Your promotional code is the' | translate }} {{username.promoCode}}{{', click' | translate }} <span routerLink="/promo">{{'here' | translate }}</span> {{'if you want to see your activity.' | translate }}</h3>
+    <h3 id="first-h3" *ngIf="claimsTotal === 0 && !justClaimed">{{'Your promotional code is the' | translate }} {{username.promoCode}}{{', click' | translate }} <span routerLink="/promo">{{'here' | translate }}</span> {{'if you want to see your activity.' | translate }}</h3>
+    <button *ngIf="claimsTotal === 0" routerLink="/claim">{{'Check compensation' | translate }}</button>
+  </div>
+  <div id="claims" *ngIf="claimsTotal !== 0">
+    <div *ngIf="pendingTotal !== 0">
+      <h3 *ngIf="pendingTotal === 1">{{'You have' | translate }} {{pendingTotal}} {{'pending claim to complete' | translate }}</h3>
+      <h3 *ngIf="pendingTotal !== 1">{{'You have' | translate }} {{pendingTotal}} {{'pending claims to complete' | translate }}</h3>
+        <ul>
+          <div *ngFor="let pending of pendings">
+            <li>{{pending.claimType}} {{'from' | translate }} {{pending.airports[0].name}}{{', to' | translate }} {{pending.airports[pending.airports.length - 1].name}}{{', claim created on' | translate }} {{pending.created_at | spanishDate}}.</li>
+            <button (click)="complete(pending._id)">{{'Complete' | translate }}</button>
+          </div>
+        </ul>
+    </div>
+    <div *ngIf="completedTotal !== 0">
+      <h3 *ngIf="completedTotal === 1">{{'You have completed' | translate }} {{completedTotal}}  {{'claim' | translate }}</h3>
+      <h3 *ngIf="completedTotal !== 1">{{'You have completed' | translate }} {{completedTotal}} {{'claims' | translate }}</h3>
+      <table>
+        <tr>
+          <th>{{'Incidence' | translate }}</th>
+          <th>{{'Status' | translate }}</th>
+        </tr>
+        <tr *ngFor="let completed of completeds">
+          <td>{{completed.claimType}} {{'from' | translate }} {{completed.airports[0].name}}{{', to' | translate }} {{completed.airports[completed.airports.length - 1].name}}{{', claim created on' | translate }} {{completed.created_at | spanishDate}}.</td>
+          <td>{{completed.status | claimStatus | translate}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

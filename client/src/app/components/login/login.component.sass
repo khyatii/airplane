@@ -1,0 +1,150 @@
+@import '../../../style-variables/colors'
+@import '../../../style-variables/input-transition-no-icon'
+
+//form size in input-border-transition.css as well
+$form-size: 17.5px
+$label-size: 12px
+$red-span-size: 14px
+
+// input transition
+.input-div
+  @include input-div
+
+.input-span
+  @include input-span
+
+.red-validation
+  @include red-validation
+
+.red-span
+  @include red-span($red-span-size)
+
+//same width as input 100%
+input
+  @include input(100%, $form-size, $label-size)
+
+.placeholder-label
+  @include placeholder-label($form-size)
+
+#incognito
+  text-align: center
+  color: $novalidate-red
+  margin-top: 10px
+
+//rest
+form
+  display: flex
+  flex-direction: column
+  height: auto
+  justify-content: space-between
+  margin: 24px 0 0 0
+
+.svg-icon
+  display: inline-flex
+  align-self: center
+  position: relative
+  height: 18px
+  width: 18px
+
+.svg-icon > svg
+  height: 18px
+  width: 18px
+
+.svg-icon.svg-baseline svg
+  position: absolute
+
+.social-login
+  vertical-align: bottom
+  margin-left: 12px
+
+button
+  width: 100%
+  box-sizing: border-box
+
+input
+  margin: 0
+
+button
+  padding: 12px 24px
+  font-size: $form-size
+  font-weight: 600
+  display: inline-flex
+  margin: 5px 0
+  justify-content: center
+
+button:first-of-type
+  background-color: rgb(69, 104, 178)
+  color: white
+  border: 2px solid rgb(69, 104, 178)
+
+button:nth-of-type(2)
+  background-color: white
+  color: $medium-gray
+  border: 2px solid $medium-gray
+
+.wrap
+  text-align: center
+  position: relative
+  margin: 5px 0
+
+.links
+  padding: 0 10px
+  display: flex
+  justify-content: center
+  position: relative
+
+.wrap:before
+  content: ''
+  position: absolute
+  top: 50%
+  left: 0
+  border-top: 1px solid $input-border-gray
+  background: black
+  width: 100%
+  transform: translateY(-50%)
+
+.o
+  width: 40px
+  height: 20px
+  margin: 0
+  background-color: white
+  z-index: 2
+  box-sizing: border-box
+  color: $medium-gray
+  font-weight: 400
+  font-size: 15px
+
+button:nth-of-type(3)
+  background-color: $primary-color
+  color: white
+  border: 2px solid $primary-color
+  display: inline
+
+#register
+  border-top: 1px solid $input-border-gray
+  padding-top: 15px
+  display: block
+  text-align: center
+  margin: 0
+  line-height: 24px
+
+#register > span
+  font-weight: 400
+  font-size: $form-size
+  padding: 0
+  margin: 0
+  color: $medium-gray !important
+
+#register > a
+  color: $primary-color !important
+  font-weight: 500
+  font-size: $form-size
+  padding: 0
+
+#forgot-password
+  margin: 15px 0
+  display: flex
+  font-weight: 500
+  justify-content: center
+  a
+    font-size: $red-span-size

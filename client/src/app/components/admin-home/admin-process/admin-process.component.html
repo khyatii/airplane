@@ -1,0 +1,88 @@
+<ul class="imp">
+  <input type="password" [(ngModel)]=deletePassword placeholder="Introduce password to delete claim">
+  <button (click)="deleteClaim(claimProcess._id, deletePassword)">Delete claim</button>
+  <span>{{message}}</span>
+  <li>Type of incident: {{claimProcess.claimType}}</li>
+  <li> Airline: {{claimProcess.airline.name}}
+    <ul>
+      <li> Country: {{claimProcess.airline.country}}</li>
+    </ul>
+  </li>
+  <li *ngFor="let airport of claimProcess.airports; let i = index"> Airport {{i}}: {{airport.name}}
+    <ul>
+      <li> Country: {{airport.country}}</li>
+    </ul>
+  </li>
+  <li *ngIf="claimProcess.incidentAirport">Incident airport: {{claimProcess.incidentAirport}}</li>
+  <li *ngIf="claimProcess.year">Year: {{claimProcess.year}}</li>
+  <li *ngIf="claimProcess.collaborator"> Collaborator: {{claimProcess.collaborator.email}}
+    <ul>
+      <li> PromoCode: {{claimProcess.collaborator.promoCode}}</li>
+    </ul>
+  </li>
+  <li *ngIf="claimProcess.collaborator"> Money: {{claimProcess.companyMoney + claimProcess.userMoney + claimProcess.collaborator.money}}€
+    <ul>
+      <li> Company money: {{claimProcess.companyMoney}}</li>
+      <li> User money: {{claimProcess.userMoney}}</li>
+      <li> Collaborator money: {{claimProcess.collaborator.money}}</li>
+    </ul>
+  </li>
+  <li *ngIf="!claimProcess.collaborator">Money: {{claimProcess.companyMoney + claimProcess.userMoney}}€
+    <ul>
+      <li> Company money: {{claimProcess.companyMoney}}</li>
+      <li> User money: {{claimProcess.userMoney}}</li>
+    </ul>
+  </li>
+  <li *ngIf="claimProcess.description">User description of incident: {{claimProcess.description}}</li>
+  <li *ngIf="claimProcess.companyClaim">Claim made to the airline by the user:
+    <ul>
+      <li>
+        <img *ngIf="claimProcess.companyClaim.mimeType === 'image'" src="{{claimProcess.companyClaim.secureUrl}}">
+        <iframe *ngIf="claimProcess.companyClaim.mimeType !== 'image'"  class="frame" [src]="claimProcess.companyClaim.secureUrl | safeUrl"></iframe>
+      </li>
+    </ul>
+  </li>
+  <li *ngIf="claimProcess.flightTicketOrReservation">Flight ticket or reservation:
+    <ul>
+      <li>
+        <img *ngIf="claimProcess.flightTicketOrReservation.mimeType === 'image'" src="{{claimProcess.flightTicketOrReservation.secureUrl}}">
+        <iframe *ngIf="claimProcess.flightTicketOrReservation.mimeType !== 'image'"  class="frame" [src]="claimProcess.flightTicketOrReservation.secureUrl | safeUrl"></iframe>
+      </li>
+    </ul>
+  </li>
+  <li *ngIf="claimProcess.boardingPass">Boarding Pass:
+    <ul>
+      <li>
+        <img *ngIf="claimProcess.boardingPass.mimeType === 'image'" src="{{claimProcess.boardingPass.secureUrl}}">
+        <iframe *ngIf="claimProcess.boardingPass.mimeType !== 'image'"  class="frame" [src]="claimProcess.boardingPass.secureUrl | safeUrl"></iframe>
+      </li>
+    </ul>
+  </li>
+  <li>Creation date: {{claimProcess.created_at}}</li>
+  <li>Last update date: {{claimProcess.updated_at}}</li>
+  <li>Username info:
+    <ul>
+      <li *ngIf="claimProcess.username.address">Address: {{claimProcess.username.address.address}} // PostalCode: {{claimProcess.username.address.postalCode}} // City: {{claimProcess.username.address.city}} // Country: {{claimProcess.username.address.country}}</li>
+      <li>First name: {{claimProcess.username.firstName}} // E-mail: {{claimProcess.username.email}} // Created_at: {{claimProcess.username.created_at}}
+        <p *ngIf="claimProcess.username.usedPromoBefore">// Has used a promoCode before: {{claimProcess.username.usedPromoBefore}}</p>
+      </li>
+      <li *ngIf="claimProcess.username.idFront">Front id or passport:
+        <ul>
+          <li>
+            <img *ngIf="claimProcess.username.idFront.mimeType === 'image'" src="{{claimProcess.username.idFront.secureUrl}}">
+            <iframe *ngIf="claimProcess.username.idFront.mimeType !== 'image'"  class="frame" [src]="claimProcess.username.idFront.secureUrl | safeUrl"></iframe>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="claimProcess.username.idBack">Back id:
+        <ul>
+          <li>
+            <img *ngIf="claimProcess.username.idBack.mimeType === 'image'" src="{{claimProcess.username.idBack.secureUrl}}">
+            <iframe *ngIf="claimProcess.username.idBack.mimeType !== 'image'"  class="frame" [src]="claimProcess.username.idBack.secureUrl | safeUrl"></iframe>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+</ul>

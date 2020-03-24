@@ -1,0 +1,99 @@
+@import '../../../style-variables/colors'
+
+$h1-size: 32px
+$h2-size: 22px
+$h3-size: 20px
+
+h1
+  font-size: $h1-size
+  color: $text-dark-gray
+  text-align: center
+
+h2
+  font-size: $h2-size
+  color: $primary-color
+  text-align: center
+  font-weight: 400
+
+h3
+  font-size: $h3-size
+  color: $text-dark-gray
+  text-align: center
+  font-weight: 500
+
+#login
+  padding: 0 16px
+
+  h4
+    margin-bottom: 0
+
+#last
+  h3
+    padding: 0 16px 0 0
+
+  h4
+    padding: 0 16px 0 0
+
+
+@media only screen and (max-width: 360px)
+  h1
+    font-size: 28px
+
+#claim, #login, #last
+  width: 100%
+  min-height: 90vh
+  margin: 0
+  display: flex
+  justify-content: space-around
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  padding: 15% 16px 20% 16px
+
+#login, #last
+  padding: calc(50% - 580px/2) 16px
+  justify-content: space-evenly
+  h3
+    margin: 0
+  h1
+    margin: 16px 0
+  h2
+    margin: 0 0 16px 0
+
+@media only screen and (min-width: 850px)
+  $h1-size: 48px
+  $h2-size: 36px
+  $h3-size: 24px
+
+  h1
+    font-size: $h1-size
+
+  h2
+    font-size: $h2-size
+
+  h3
+    font-size: $h3-size
+
+  #claim, #login, #last
+    width: 782px
+    margin: 0 calc(50% - 782px/2)
+    padding: 8vh 16px 20vh 16px
+    justify-content: space-between
+
+  #login, #last
+    padding: calc(45vh - 640px/2) 16px
+    h1, h2, h3
+      margin: 20px 0
+
+  #login, #last
+    padding: calc(45vh - 830px/2) 16px
+    h1
+      margin: 20px 0
+    h2
+      margin: 0 0 20px 0
+    h3
+      margin: 0
+
+
+  app-login
+    margin-top: 60px

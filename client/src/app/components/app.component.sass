@@ -1,0 +1,71 @@
+@import '../../style-variables/colors'
+
+#router
+  min-height: calc(100vh - 20px)
+
+#content
+  position: absolute
+  width: 100%
+  margin: 45px 0 0 0
+  -webkit-overflow-scrolling: auto
+  overflow: auto
+
+#cookies
+  position: fixed
+  bottom: 0
+  left: 0
+  text-align: center
+  color: $text-light-gray
+  width: 100%
+  background: $gblue-background
+  padding: 1em 0
+  span
+    position: relative
+  a
+    color: $primary-color
+
+.svg-icon
+  position: absolute
+  top: calc(50% - 8px)
+  left: -20px
+
+svg
+  position: absolute
+  display: inline
+  height: 9px
+  width: 9px
+  top: 0px
+  left: 0px
+  transition: all 0.25s linear
+  fill: $svg-arrow
+  cursor: pointer
+
+.terms
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  width: 100%
+  background: #fafafa
+  outline: none
+  padding: 1em 0
+  span, a
+    text-align: center
+    color: $text-light-gray
+    padding: 0.5em 0
+    &:focus
+      outline: none
+
+@media only screen and (min-width: 1020px)
+  #content
+    margin: 65px 0 0 0
+
+  .svg-icon
+    position: absolute
+    top: calc(50% - 8px)
+    left: -30px
+
+  .terms
+    display: flex
+    justify-content: space-around
+    flex-direction: row

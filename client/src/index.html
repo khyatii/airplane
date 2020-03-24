@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fly&amp;Claim</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="FlyAndClaim" />
+  <meta property="og:description" content="FlyAndClaim" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flyandclaim.herokuapp.com/" />
+  <meta property="og:image" content="favicon.ico" />
+  <meta property="fb:app_id" content="726042150925672" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="//connect.facebook.net/en_US/sdk.js">
+  </script>
+  <script async defer src="https://apis.google.com/js/api.js">
+  </script>
+  <script>
+    let host = "www.flyandclaim.com";
+    if ((host == window.location.host) && (window.location.protocol != "https:")){
+      window.location.protocol = "https";
+    }
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

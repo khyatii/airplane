@@ -1,0 +1,177 @@
+<div id="content">
+  <div *ngIf="Pending.length > 0" class="status-dashboard">
+    <div *ngFor="let item of Pending; let y = index">
+      <div id="pending">
+        <h1>Pending</h1>
+        <h2 >Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="claim-company" (click)="updateStatus(item._id, $event)" value="ClaimCompany">ClaimCompany</button>
+        <button id="pending-claim-admin" (click)="updateStatus(item._id, $event)" value="PendingClaimAdmin">PendingClaimAdmin</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="ClaimCompany.length > 0"class="status-dashboard">
+    <div *ngFor="let item of ClaimCompany; let y = index">
+      <div id="claim-company">
+        <h1>ClaimCompany</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="claim-admin1" (click)="updateStatus(item._id, $event)" value="ClaimAdmin1">ClaimAdmin1</button>
+        <button id="payment-received" (click)="updateStatus(item._id, $event)" value="PaymentReceived">PaymentReceived</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="PendingClaimAdmin.length > 0"class="status-dashboard">
+    <div *ngFor="let item of PendingClaimAdmin; let y = index">
+      <div id="claim-admin1">
+        <h1>PendingClaimAdmin</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="waiting-payment1" (click)="updateStatus(item._id, $event)" value="WaitingPayment1">WaitingPayment1</button>
+        <button id="rejected" (click)="updateStatus(item._id, $event)" value="Rejected">Rejected</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="ClaimAdmin1.length > 0"class="status-dashboard">
+    <div *ngFor="let item of ClaimAdmin1; let y = index">
+      <div id="claim-admin1">
+        <h1>ClaimAdmin1</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="waiting-payment1" (click)="updateStatus(item._id, $event)" value="WaitingPayment1">WaitingPayment1</button>
+        <button id="rejected" (click)="updateStatus(item._id, $event)" value="Rejected">Rejected</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="WaitingPayment1.length > 0"class="status-dashboard">
+    <div *ngFor="let item of WaitingPayment1; let y = index">
+      <div id="waiting-payment1">
+        <h1>WaitingPayment1</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="claim-admin2" (click)="updateStatus(item._id, $event)" value="ClaimAdmin2">ClaimAdmin2</button>
+        <button id="payment-received" (click)="updateStatus(item._id, $event)" value="PaymentReceived">PaymentReceived</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="ClaimAdmin2.length > 0"class="status-dashboard">
+    <div *ngFor="let item of ClaimAdmin2; let y = index">
+      <div id="claim-admin2">
+        <h1>ClaimAdmin2</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="waiting-payment2" (click)="updateStatus(item._id, $event)" value="WaitingPayment2">WaitingPayment2</button>
+        <button id="court" (click)="updateStatus(item._id, $event)" value="Court">Court</button>
+        <button id="payment-received" (click)="updateStatus(item._id, $event)" value="PaymentReceived">PaymentReceived</button>
+        <button id="rejected" (click)="updateStatus(item._id, $event)" value="Rejected">Rejected</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="WaitingPayment2.length > 0"class="status-dashboard">
+    <div *ngFor="let item of WaitingPayment2; let y = index">
+      <div id="waiting-payment2">
+        <h1>WaitingPayment2</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="court" (click)="updateStatus(item._id, $event)" value="Court">Court</button>
+        <button id="payment-received" (click)="updateStatus(item._id, $event)" value="PaymentReceived">PaymentReceived</button>
+        <button id="rejected" (click)="updateStatus(item._id, $event)" value="Rejected">Rejected</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="Court.length > 0"class="status-dashboard">
+    <div *ngFor="let item of Court; let y = index">
+      <div id="court">
+        <h1>Court</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="court-payment" (click)="updateStatus(item._id, $event)" value="CourtPayment">CourtPayment</button>
+        <button id="payment-received" (click)="updateStatus(item._id, $event)" value="PaymentReceived">PaymentReceived</button>
+        <button id="rejected" (click)="updateStatus(item._id, $event)" value="Rejected">Rejected</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="CourtPayment.length > 0" class="status-dashboard">
+    <div *ngFor="let item of CourtPayment; let y = index">
+      <div id="court-payment">
+        <h1>CourtPayment</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+        <button id="payment-received" (click)="updateStatus(item._id, $event)" value="PaymentReceived">PaymentReceived</button>
+        <button id="rejected" (click)="updateStatus(item._id, $event)" value="Rejected">Rejected</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="PaymentReceived.length > 0"class="status-dashboard">
+    <div *ngFor="let item of PaymentReceived; let y = index">
+      <div id="payment-received" >
+        <h1>PaymentReceived</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="payment-received" (click)="updateStatus(item._id, $event)" value="PaymentDone">PaymentDone</button>
+        <button id="abandoned" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="PaymentDone.length > 0"class="status-dashboard">
+    <div *ngFor="let item of PaymentDone; let y = index">
+      <div id="payment-done" >
+        <h1>PaymentDone</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="Rejected.length > 0"class="status-dashboard">
+    <div *ngFor="let item of Rejected; let y = index">
+      <div id="rejected">
+        <h1>Rejected</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="rejected" (click)="updateStatus(item._id, $event)" value="Abandoned">Abandoned</button>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="Abandoned.length > 0"class="status-dashboard">
+    <div *ngFor="let item of Abandoned; let y = index">
+      <div id="abandoned">
+        <h1>Abandoned</h1>
+        <h2>Claim number {{y}}</h2>
+        <app-admin-process [claimProcess]="item"></app-admin-process>
+        <button id="pending" (click)="updateStatus(item._id, $event)" value="Pending">Pending</button>
+      </div>
+    </div>
+  </div>
+
+</div>

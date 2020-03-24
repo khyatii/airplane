@@ -1,0 +1,212 @@
+@import '../../../style-variables/colors'
+@import '../shared-components/modal/modal.component'
+
+$nav-font-size: 16px
+
+.active
+  font-weight: 700
+  background-color: #EBECF0
+
+//mobile first
+.svg-icon
+  position: relative
+
+svg
+  position: absolute
+  display: inline
+  height: 9px
+  width: 9px
+  top: 23px
+  left: calc(4.7619% + 110px)
+  transition: all 0.25s linear
+  fill: $svg-arrow
+  cursor: pointer
+
+.arrow-up
+  transform: rotate(180deg)
+
+//z-index 3 for position fixed
+#nav-bar
+  z-index: 3
+  background-color: white
+  border-bottom: 1px solid $border-gray
+  box-shadow: 0 1px 5px $box-shadow-gray
+  width: 100%
+  position: fixed
+  top: 0
+  box-sizing: border-box
+  height: 45px
+
+#ul-absolute
+  z-index: 2
+  position: fixed
+  top: 45px
+  visibility: visible
+  transition: visibility 0.005s linear 0.304s
+  transition: all 0.304s ease-in-out !important
+  li
+    outline: none
+
+.ul-dropdown
+  top: -130px !important
+  visibility: hidden !important
+
+#logo
+  background-image: url(../../../assets/web-icons/title.svg)
+  height: 30px
+  width: 100px
+  background-size: cover
+  margin-top: 11.5px
+  margin-right: 290px
+  display: inline-block
+  float: left
+  margin-left: 4.7619%
+
+#logo:focus
+  outline: none
+
+ul
+  margin: 0
+  padding: 0 4.7619% 0 0
+  list-style-type: none
+  float: left
+  background-color: $mobile-ul-background
+  display: flex
+  flex-direction: column-reverse
+
+li
+  width: 100vw
+  margin: 0
+  padding: 11px 0 11px 4.7619%
+  float: none
+  font-size: $nav-font-size
+  font-weight: 500
+
+button
+  float: right
+  background-color: $primary-color
+  color: white
+  font-weight: 700
+  position: absolute
+  top: 9px
+  right: 0
+  margin: 0 2% 0 0
+  height: 30px
+  border: none
+  font-size: 15px
+  padding: 5px 10px
+  box-shadow: 0 2px 4px rgba(0,0,0,.25)
+
+@media only screen and (max-width: 350px)
+  button
+    font-size: 13px
+    padding: 5px 8px
+    border-radius: 5px
+
+button:hover
+  box-shadow: 0 3px 4px rgba(0,0,0,.5)
+
+.modal-body
+  margin: 0 !important
+  padding: 32px !important
+  width: 100%
+  height: auto
+  box-sizing: border-box
+
+.svg-last
+  position: relative
+  svg
+    top: 0
+    left: 0
+
+//in modal.css make opacity and background changes as well
+@media only screen and (min-width: 750px)
+  .modal-body
+    margin: calc(50vh - (568px/2)) calc(50vw - (573px/2)) !important
+    padding: 32px !important
+    width: 573px
+    height: 568px
+    box-sizing: border-box
+
+//important to have the following two media queries because of !important
+@media only screen and (min-width: 1120px)
+  #nav-bar
+    padding: 0 calc(50% - 560px)
+
+  .button-displayed
+    right: calc(50% - 302px) !important
+
+  #ul-absolute
+    right: calc(50% - 550px)
+
+@media only screen and (max-width: 1099px) and (min-width: 1020px)
+  #nav-bar
+    padding: 0 calc(50% - 510px)
+
+  .button-displayed
+    right: calc(50% - 262px) !important
+
+  #ul-absolute
+    right: calc(50% - 510px)
+
+@media only screen and (min-width: 1020px)
+  $nav-font-size: 17px
+  .active
+    font-weight: 700
+    background-color: white
+
+  #logo:hover
+    background-image: url(../../../assets/web-icons/title-hover.svg)
+    cursor: pointer
+
+  #nav-bar
+    width: 100vw
+    margin: 0
+    height: 65px
+    display: flex
+    justify-content: space-between
+
+  #ul-absolute
+    z-index: 4
+    height: 64px
+    box-sizing: border-box
+    visibility: visible !important
+    top: 0 !important
+    transition: right 0s !important
+
+  .button-displayed
+    transition: right 0s !important
+
+  #logo
+    height: 40px
+    width: 133px
+    margin: 11.5px 0 0 10px
+
+  #logo:hover
+    height: 40px
+    width: 133px
+    margin: 11.5px 0 0 10px
+
+  ul
+    padding: 0
+    margin: 0
+    display: list-item
+    background-color: white
+
+  li
+    width: auto
+    float: right
+    font-size: $nav-font-size
+    padding: 21.5px 10px !important
+    height: auto
+    overflow: visible
+
+  button
+    position: static
+    margin: 10px 10px 0 10px
+    height: 42px
+    font-size: $nav-font-size
+    padding: 7px 10px
+
+  svg
+    display: none

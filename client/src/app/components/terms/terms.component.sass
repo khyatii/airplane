@@ -1,0 +1,33 @@
+@import '../../../style-variables/colors'
+
+a, a:visited
+  color: $primary-color
+
+h1,h3, th
+  color: $text-dark-gray
+
+h1, td
+  text-align: center
+
+
+p, li, td
+  color: $text-light-gray
+
+ol
+  padding: 0
+
+.second
+  list-style-type: lower-latin
+
+.body
+  padding: 0 40px
+  width: auto
+
+table, th, td
+  border: 1px solid $input-border-gray
+  box-sizing: border-box
+
+@media only screen and (min-width: 850px)
+  .body
+    padding: 0 calc(50vw - 375px)
+    width: 750px

@@ -1,0 +1,39 @@
+@import '../../../../../style-variables/colors'
+@import '../../../../../style-variables/input-transition'
+
+$form-size: 15px
+
+.red
+  color: $novalidate-red !important
+
+.small
+  padding: 5px 0 !important
+
+
+.red-picture
+  box-sizing: border-box
+  width: 100%
+  font-size: $form-size
+  padding: 0 10px
+  border: 1px solid $novalidate-red
+  background: $gblue-background
+  text-align: justify
+  ul
+    padding: 0 5px 0 15px
+    li
+      color: $text-dark-gray
+      font-weight: 500
+      padding: 8px 0
+
+@media only screen and (max-width: 360px)
+  $form-size: 12px
+
+  .red-picture
+    font-size: $form-size
+
+
+@media only screen and (min-width: 850px)
+  $form-size: 17.5px
+
+  .red-picture
+    font-size: $form-size

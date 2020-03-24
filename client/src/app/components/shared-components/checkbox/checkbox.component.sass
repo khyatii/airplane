@@ -1,0 +1,44 @@
+@import '../../../../style-variables/colors'
+
+.container
+  display: block
+  position: relative
+  cursor: pointer
+  font-size: 14px
+  user-select: none
+  input
+    position: absolute
+    opacity: 0
+    cursor: pointer
+
+.checkmark
+  border-radius: 3px
+  position: absolute
+  top: 0
+  left: 0
+  height: 16px
+  width: 16px
+  background-color: white
+  border: 1px solid #e4e4e4
+
+.container
+  input:checked ~ .checkmark
+    background-color: $primary-color
+    border: none
+
+.checkmark:after
+  content: ""
+  position: absolute
+  display: none
+
+.container
+  input:checked ~ .checkmark:after
+    display: block
+  .checkmark:after
+    left: 5px
+    top: 2.5px
+    width: 3px
+    height: 8px
+    border: solid white
+    border-width: 0 2px 2px 0
+    transform: rotate(45deg)

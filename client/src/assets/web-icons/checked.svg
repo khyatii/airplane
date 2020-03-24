@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>checked</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop-HD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-645.000000, -373.000000)">
+        <g id="Group" transform="translate(250.000000, 354.000000)" fill="#0075EB" fill-rule="nonzero">
+            <g id="destino-Madrid">
+                <g id="checked" transform="translate(395.000000, 19.000000)">
+                    <path d="M0.176923073,6.6 C0.0589743578,6.48 0,6.3 0,6.18 C0,6.06 0.0589743578,5.88 0.176923073,5.76 L1.00256408,4.92 C1.23846151,4.68 1.59230766,4.68 1.82820509,4.92 L1.88717945,4.98 L5.13076912,8.52 C5.24871784,8.64 5.42564091,8.64 5.54358963,8.52 L13.4461536,0.18 L13.5051279,0.18 C13.7410254,-0.06 14.0948715,-0.06 14.3307689,0.18 L15.1564099,1.02 C15.3923074,1.26 15.3923074,1.62 15.1564099,1.86 L5.7205127,11.82 C5.60256399,11.94 5.48461527,12 5.3076922,12 C5.13076912,12 5.01282041,11.94 4.89487169,11.82 L0.294871789,6.78 L0.176923073,6.6 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

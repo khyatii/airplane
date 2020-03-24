@@ -1,0 +1,76 @@
+<div id="first-div" [ngClass]="{'no-first':firstPadding}" class="divs">
+  <h1>{{ 'We only charge' | translate }} <br> {{ 'if you win' | translate }}</h1>
+  <h3 id="first-h3">{{ "It will take you only a minute to claim your flight, it's that easy!" | translate }}</h3>
+  <button #claim routerLink="/claim">{{'Check compensation' | translate }}</button>
+</div>
+
+<div id="second-div" [ngClass]="{'no-second':secondPadding}" class="divs">
+  <h2>{{'What can I claim?' | translate }}</h2>
+    <div class="claim-type">
+      <img src="../../../assets/web-icons/delay.svg">
+      <div class="incident">
+        <h3>{{'Delay' | translate }}</h3>
+        <p>{{'You can get up to € 600 for any delay over 3 hours.'| translate }}</p>
+      </div>
+    </div>
+    <div class="claim-type">
+      <img src="../../../assets/web-icons/cancellation.svg">
+      <div class="incident">
+        <h3>{{'Cancellation' | translate }}</h3>
+        <p>{{'If your flight has been cancelled or you have been assigned a different one, airlines owe you a compensation.' | translate }}</p>
+      </div>
+    </div>
+    <div class="claim-type">
+      <img src="../../../assets/web-icons/overbooking.svg">
+      <div class="incident">
+        <h3>{{'Overbooking' | translate }}</h3>
+        <p>{{'You are entitled to compensation in case of denied boarding.' | translate }}</p>
+      </div>
+  </div>
+</div>
+<div id="third-div" [ngClass]="{'no-third':thirdPadding}" class="divs">
+    <h2>{{'How does Fly&amp;Claim work?' | translate }}</h2>
+    <div id="functioning">
+      <div [@animation]="animationForm" (@animation.done)="animationDone($event)">
+        <img src="../../../assets/web-icons/form.svg">
+        <h3>{{'Fill our form' | translate }}</h3>
+        <p>{{'Enter your flight information and see if you are entitled to compensation, it will take you less than a minute!' | translate }}</p>
+      </div>
+      <div [@animation]="animationExperts" (@animation.done)="animationDone($event)">
+        <img src="../../../assets/web-icons/experts.svg">
+        <h3 >{{'Our experts process your case' | translate }}</h3>
+        <p>{{'We have a team of professionals whose success rate is 99%. Forget about the paperwork, at Fly&Claim we take care of everything!' | translate }}</p>
+      </div>
+      <div [@animation]="animationMoney" (@animation.done)="animationDone($event)">
+        <img src="../../../assets/web-icons/money.svg">
+        <h3>{{"You get your money, it's that easy!" | translate }}</h3>
+        <p>{{'Once your claim is resolved, you will receive your money immediately. You can get from 250 to 600 euros per passenger.' | translate }}</p>
+      </div>
+    </div>
+    <div id="mobile-circle-arrow">
+      <img id="first-arrow" [ngStyle]="firstArrow" (click)="divLeft()" src="../../../assets/web-icons/right-arrow.svg">
+      <div [ngStyle]="firstC" class="circle"></div>
+      <div [ngStyle]="secondC" class="circle"></div>
+      <div [ngStyle]="thirdC" class="circle"></div>
+      <img [ngStyle]="secondArrow" (click)="divRight()" src="../../../assets/web-icons/right-arrow.svg">
+    </div>
+</div>
+
+<div id="blue-div" class="divs">
+  <div class="blue-divs">
+    <img src="../../../assets/web-icons/hands.svg">
+    <h3>{{'We only charge if you win' | translate }}</h3>
+  </div>
+  <div class="blue-divs">
+    <img src="../../../assets/web-icons/one.svg">
+    <h3>{{'Up to 600€ per person' | translate }}</h3>
+  </div>
+  <div class="blue-divs">
+    <img src="../../../assets/web-icons/paper.svg">
+    <h3 >{{'Forget about the paperwork' | translate }}</h3>
+  </div>
+  <div class="blue-divs">
+    <img src="../../../assets/web-icons/mail.svg">
+    <h3>{{'We inform you step by step of the process' | translate }}</h3>
+  </div>
+</div>
